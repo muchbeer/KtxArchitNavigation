@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import raum.muchbeer.ktxarchitnavigation.R
 import raum.muchbeer.ktxarchitnavigation.databinding.FragmentDashboardBinding
 
@@ -30,6 +31,10 @@ private lateinit var binding : FragmentDashboardBinding
       // var receiveInput =  arguments!!.getString("user_key")
         val receiveInput : String? = requireArguments()!!.getString("user_key")
         binding.txtDisplay.text = receiveInput.toString()
+
+        binding.btnUsers.setOnClickListener {
+            it.findNavController().navigate(R.id.dashboardToUsers)
+        }
         return binding.root
     }
 
